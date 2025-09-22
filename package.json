@@ -1,0 +1,24 @@
+{
+  "name": "aws-blueprints",
+  "version": "1.0.0",
+  "description": "Plug and play solutions for common cloud use-cases",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "aws-cdk": "^2.1029.1",
+    "aws-cdk-lib": "^2.214.0",
+    "constructs": "^10.4.2",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,65 @@
+# CDK asset staging directory
+.cdk.staging
+cdk.out/
+
+# TypeScript output directory
+dist/
+lib/*.js
+lib/*.d.ts
+test/*.js
+test/*.d.ts
+
+# Dependencies
+node_modules/
+.npm
+.yarn
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.env
+.env.*
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+
+# AWS credentials and config files
+.aws/
+*.pem
+*.key
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local development
+.local/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# CDK context
+cdk.context.json
+
+# Blueprint specific ignores
+blueprints/**/node_modules/
+blueprints/**/dist/
+blueprints/**/*.js
+blueprints/**/*.d.ts
+blueprints/**/cdk.out/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
