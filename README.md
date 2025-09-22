@@ -1,6 +1,6 @@
 # AWS Blueprints
 
-A collection of ready-to-deploy AWS infrastructure patterns and solutions using AWS CDK. This repository serves as a learning resource for AWS Cloud Practitioner certification preparation and provides practical, production-ready infrastructure templates.
+A collection of ready-to-deploy AWS infrastructure patterns and solutions using AWS CDK in multiple programming languages. This repository serves as a learning resource for AWS Cloud Practitioner certification preparation and provides practical, production-ready infrastructure templates.
 
 ## 🎯 Purpose
 
@@ -8,23 +8,33 @@ A collection of ready-to-deploy AWS infrastructure patterns and solutions using 
 - Serve as a learning resource for AWS certification preparation
 - Offer ready-to-use templates for common cloud architecture scenarios
 - Demonstrate AWS best practices and well-architected framework principles
+- Support multiple programming languages for different developer preferences
 
 ## 📁 Repository Structure
 
 ```
 aws-blueprints/
-├── blueprints/       # Individual blueprint implementations
-├── lib/             # Shared constructs and utilities
-├── test/            # Test cases for blueprints
-└── docs/            # Documentation and guides
+├── typescript/       # TypeScript CDK implementations
+│   ├── blueprints/
+│   ├── package.json
+│   └── tsconfig.json
+├── python/          # Python CDK implementations
+│   ├── blueprints/
+│   ├── requirements.txt
+│   └── pyproject.toml
+└── docs/            # Shared documentation and guides
 ```
 
 ## 🔧 Available Blueprints
 
-Each blueprint is contained in its own directory under `blueprints/` with its own README and deployment instructions.
+Each blueprint is available in both TypeScript and Python, contained in their respective language directories with their own README and deployment instructions.
 
-Coming soon:
-1. Basic Web Application (EC2 + VPC + S3)
+### Current Blueprints:
+1. **Basic Web Application** (EC2 + VPC + S3)
+   - TypeScript: `typescript/blueprints/basic-web-app/`
+   - Python: `python/blueprints/basic_web_app/`
+
+### Coming Soon:
 2. Serverless API (API Gateway + Lambda + DynamoDB)
 3. Static Website Hosting (S3 + CloudFront)
 4. Container Application (ECS + Fargate)
@@ -35,9 +45,17 @@ Coming soon:
 ### Prerequisites
 
 - AWS Account and configured AWS CLI
-- Node.js 14.x or later
 - AWS CDK CLI (`npm install -g aws-cdk`)
+
+### Language-Specific Prerequisites
+
+**For TypeScript:**
+- Node.js 14.x or later
 - TypeScript (`npm install -g typescript`)
+
+**For Python:**
+- Python 3.8 or later
+- pip (Python package manager)
 
 ### Installation
 
@@ -47,10 +65,9 @@ Coming soon:
    cd aws-blueprints
    ```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+2. Choose your preferred language and follow the setup instructions:
+   - [TypeScript Setup](typescript/README.md)
+   - [Python Setup](python/README.md)
 
 3. Bootstrap AWS CDK (if you haven't already):
    ```bash
@@ -59,22 +76,19 @@ Coming soon:
 
 ## 🛠️ Usage
 
-Each blueprint contains its own README with specific instructions, but generally:
+Each blueprint contains its own README with specific instructions. Choose your preferred language:
 
-1. Navigate to the blueprint directory:
-   ```bash
-   cd blueprints/[blueprint-name]
-   ```
+### TypeScript
+```bash
+cd typescript/blueprints/[blueprint-name]
+cdk deploy
+```
 
-2. Deploy the blueprint:
-   ```bash
-   cdk deploy
-   ```
-
-3. To destroy the resources:
-   ```bash
-   cdk destroy
-   ```
+### Python
+```bash
+cd python/blueprints/[blueprint_name]
+cdk deploy
+```
 
 ## 📚 Learning Resources
 

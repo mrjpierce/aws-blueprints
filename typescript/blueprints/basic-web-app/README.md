@@ -1,6 +1,6 @@
-# Basic Web Application Blueprint
+# Basic Web Application Blueprint (TypeScript)
 
-This blueprint demonstrates a fundamental web application architecture in AWS, perfect for learning core AWS services covered in the Cloud Practitioner exam.
+This blueprint demonstrates a fundamental web application architecture in AWS using TypeScript CDK, perfect for learning core AWS services covered in the Cloud Practitioner exam.
 
 ## 📋 Architecture Overview
 
@@ -36,25 +36,35 @@ This blueprint helps you understand:
 - Security Groups and network access control
 - S3 bucket creation and permissions
 - IAM roles and policies
-- Infrastructure as Code using AWS CDK
+- Infrastructure as Code using AWS CDK with TypeScript
 
 ## 🚀 Deployment Instructions
 
-1. Navigate to the blueprint directory:
+1. Navigate to the TypeScript directory:
+   ```bash
+   cd typescript
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Navigate to the blueprint directory:
    ```bash
    cd blueprints/basic-web-app
    ```
 
-2. Deploy the stack:
+4. Deploy the stack:
    ```bash
    cdk deploy
    ```
 
-3. After deployment, note the outputs:
+5. After deployment, note the outputs:
    - WebServerIP: Public IP of your web server
    - BucketName: Name of your S3 bucket
 
-4. Access your web application:
+6. Access your web application:
    ```
    http://<WebServerIP>
    ```
