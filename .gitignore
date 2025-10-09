@@ -63,3 +63,13 @@ blueprints/**/cdk.out/
 *.tmp
 *.temp
 .cache/
+
+# Development directories
+dev/
+/development/
+/scratch/
+/playground/
+/sandbox/
+/workspace/
+/temp/
+/experiments/
