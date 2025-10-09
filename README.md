@@ -47,6 +47,103 @@ Each blueprint is available in both TypeScript and Python, contained in their re
 - AWS Account and configured AWS CLI
 - AWS CDK CLI (`npm install -g aws-cdk`)
 
+## 🔧 Initial Setup for Beginners
+
+### 1. AWS Account Setup
+
+If you don't have an AWS account yet:
+1. Go to [AWS Console](https://aws.amazon.com/console/)
+2. Click "Create an AWS Account"
+3. Follow the registration process
+4. **Important**: Set up billing alerts to avoid unexpected charges
+
+### 2. AWS CLI Installation and Configuration
+
+#### Install AWS CLI
+```bash
+# On macOS with Homebrew
+brew install awscli
+
+# On Ubuntu/Debian
+sudo apt update
+sudo apt install awscli
+
+# On Windows with Chocolatey
+choco install awscli
+
+# Or download from: https://aws.amazon.com/cli/
+```
+
+#### Configure AWS CLI
+```bash
+aws configure
+```
+You'll need:
+- **AWS Access Key ID**: Get from AWS Console → IAM → Users → Security credentials
+- **AWS Secret Access Key**: Generated when you create access keys
+- **Default region**: e.g., `us-east-1`, `us-west-2`, `eu-west-1`
+- **Default output format**: `json` (recommended)
+
+#### Verify AWS CLI Setup
+```bash
+aws sts get-caller-identity
+```
+This should return your AWS account details.
+
+### 3. CDK CLI Installation
+
+#### Install Node.js (if not already installed)
+```bash
+# On macOS with Homebrew
+brew install node
+
+# On Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Or download from: https://nodejs.org/
+```
+
+#### Install CDK CLI
+```bash
+npm install -g aws-cdk
+```
+
+#### Verify CDK Installation
+```bash
+cdk --version
+```
+
+### 4. Required AWS Permissions
+
+Your AWS user/role needs the following permissions for CDK deployment:
+
+#### Essential Permissions
+- `cloudformation:*` (CloudFormation management)
+- `s3:*` (S3 bucket operations)
+- `iam:*` (IAM role and policy management)
+- `ec2:*` (EC2 instance and networking)
+- `ssm:*` (Systems Manager Parameter Store)
+
+#### Quick Setup with AWS Managed Policies
+For learning purposes, you can attach these managed policies to your user:
+- `PowerUserAccess` (provides most permissions except IAM)
+- `IAMFullAccess` (for IAM operations)
+
+**⚠️ Security Note**: For production environments, create custom policies with minimal required permissions.
+
+### 5. Bootstrap CDK (First Time Only)
+
+CDK needs to bootstrap your AWS environment:
+```bash
+cdk bootstrap
+```
+
+This creates:
+- S3 bucket for CDK assets
+- IAM roles for CDK operations
+- CloudFormation stack for CDK toolkit
+
 ### Language-Specific Prerequisites
 
 **For TypeScript:**

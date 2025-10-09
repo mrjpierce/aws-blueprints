@@ -38,6 +38,54 @@ This blueprint helps you understand:
 - IAM roles and policies
 - Infrastructure as Code using AWS CDK with TypeScript
 
+## 🔐 Required Permissions
+
+Before deploying this blueprint, ensure your AWS credentials have the following permissions:
+
+### IAM Permissions
+- `iam:CreateRole`
+- `iam:AttachRolePolicy`
+- `iam:PassRole`
+- `iam:CreateInstanceProfile`
+- `iam:AddRoleToInstanceProfile`
+
+### EC2 Permissions
+- `ec2:CreateVpc`
+- `ec2:CreateSubnet`
+- `ec2:CreateInternetGateway`
+- `ec2:CreateNatGateway`
+- `ec2:CreateRouteTable`
+- `ec2:CreateRoute`
+- `ec2:CreateSecurityGroup`
+- `ec2:CreateKeyPair`
+- `ec2:RunInstances`
+- `ec2:AllocateAddress`
+- `ec2:AssociateAddress`
+- `ec2:CreateTags`
+- `ec2:Describe*`
+
+### S3 Permissions
+- `s3:CreateBucket`
+- `s3:PutBucketVersioning`
+- `s3:PutBucketEncryption`
+- `s3:PutBucketPolicy`
+- `s3:GetBucketLocation`
+
+### CloudFormation Permissions
+- `cloudformation:CreateStack`
+- `cloudformation:UpdateStack`
+- `cloudformation:DeleteStack`
+- `cloudformation:DescribeStacks`
+- `cloudformation:DescribeStackEvents`
+
+### CDK Bootstrap Permissions
+If this is your first CDK deployment, you'll also need:
+- `s3:CreateBucket`
+- `s3:PutObject`
+- `iam:CreateRole`
+- `iam:AttachRolePolicy`
+- `ssm:PutParameter`
+
 ## 🚀 Deployment Instructions
 
 1. Navigate to the TypeScript directory:
@@ -50,12 +98,17 @@ This blueprint helps you understand:
    npm install
    ```
 
-3. Navigate to the blueprint directory:
+3. Bootstrap CDK (first time only):
+   ```bash
+   cdk bootstrap
+   ```
+
+4. Navigate to the blueprint directory:
    ```bash
    cd blueprints/basic-web-app
    ```
 
-4. Deploy the stack:
+5. Deploy the stack:
    ```bash
    cdk deploy
    ```
