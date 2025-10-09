@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts app.ts",
+  "app": "python bin/basic_web_app.py",
   "watch": {
     "include": [
       "**"
@@ -7,12 +7,12 @@
     "exclude": [
       "README.md",
       "cdk*.json",
-      "**/*.d.ts",
-      "**/*.js",
-      "tsconfig.json",
-      "package*.json",
-      "yarn.lock",
-      "node_modules",
+      "**/*.pyc",
+      "**/__pycache__",
+      "**/.pytest_cache",
+      "**/venv",
+      "**/.venv",
+      "**/node_modules",
       "test"
     ]
   },

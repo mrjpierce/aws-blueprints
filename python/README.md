@@ -1,63 +1,65 @@
 # AWS Blueprints - Python
 
-This directory contains AWS infrastructure blueprints implemented using Python and AWS CDK.
+This directory contains self-contained AWS infrastructure blueprints implemented using Python and AWS CDK.
 
-## 🚀 Quick Start
+## 🚀 Python Setup
 
-1. Create a virtual environment:
+### Prerequisites
+- Python 3.8 or later
+- AWS CLI configured (see main README for setup)
+- AWS CDK CLI (`npm install -g aws-cdk`)
+
+### Quick Start
+
+1. **Navigate to a blueprint directory**:
+   ```bash
+   cd blueprints/[blueprint_name]
+   ```
+
+2. **Create a virtual environment**:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-2. Install dependencies:
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Bootstrap AWS CDK (if you haven't already):
+4. **Bootstrap CDK (first time only)**:
    ```bash
    cdk bootstrap
    ```
 
-4. Deploy a blueprint:
+5. **Deploy the blueprint**:
    ```bash
-   cd blueprints/basic_web_app
    cdk deploy
+   ```
+
+6. **Destroy when done**:
+   ```bash
+   cdk destroy
    ```
 
 ## 📁 Available Blueprints
 
-- **basic_web_app**: A fundamental web application with VPC, EC2, and S3
+### 1. **Basic Web Application** (`blueprints/basic_web_app/`)
+- **Services**: VPC, EC2, S3, IAM
+- **Purpose**: Learn fundamental AWS services
 
-## 🛠️ Development
+### 2. **URL Shortener** (`blueprints/url_shortener/`)
+- **Services**: Lambda, DynamoDB, API Gateway, CloudFront, S3
+- **Purpose**: Learn serverless architecture
 
-### Prerequisites
-- Python 3.8 or later
-- AWS CLI configured
-- AWS CDK CLI (`npm install -g aws-cdk`)
+## 🏗️ Blueprint Structure
 
-### Development Setup
-```bash
-# Install development dependencies
-pip install -e ".[dev]"
-
-# Format code
-black .
-isort .
-
-# Type checking
-mypy .
-
-# Run tests
-pytest
-```
-
-### CDK Commands
-- `cdk deploy` - Deploy stack
-- `cdk destroy` - Destroy stack
-- `cdk diff` - Show differences
-- `cdk synth` - Synthesize CloudFormation template
+Each blueprint is completely independent with its own:
+- **Dependencies** (`requirements.txt` and `pyproject.toml`)
+- **CDK Configuration** (`cdk.json`)
+- **App Entry Point** (`bin/blueprint_name.py`)
+- **Stack Implementation** (`blueprint_name_stack.py`)
+- **Documentation** (`README.md`)
 
 ## 📚 Learning Resources
 - [AWS CDK Python Documentation](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-python.html)

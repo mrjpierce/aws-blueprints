@@ -1,44 +1,60 @@
 # AWS Blueprints - TypeScript
 
-This directory contains AWS infrastructure blueprints implemented using TypeScript and AWS CDK.
+This directory contains self-contained AWS infrastructure blueprints implemented using TypeScript and AWS CDK.
 
-## 🚀 Quick Start
+## 🚀 TypeScript Setup
 
-1. Install dependencies:
+### Prerequisites
+- Node.js 18.x or later
+- AWS CLI configured (see main README for setup)
+- AWS CDK CLI (`npm install -g aws-cdk`)
+
+### Quick Start
+
+1. **Navigate to a blueprint directory**:
+   ```bash
+   cd blueprints/[blueprint-name]
+   ```
+
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-2. Bootstrap AWS CDK (if you haven't already):
+3. **Bootstrap CDK (first time only)**:
    ```bash
    cdk bootstrap
    ```
 
-3. Deploy a blueprint:
+4. **Deploy the blueprint**:
    ```bash
-   cd blueprints/basic-web-app
    cdk deploy
+   ```
+
+5. **Destroy when done**:
+   ```bash
+   cdk destroy
    ```
 
 ## 📁 Available Blueprints
 
-- **basic-web-app**: A fundamental web application with VPC, EC2, and S3
+### 1. **Basic Web Application** (`blueprints/basic-web-app/`)
+- **Services**: VPC, EC2, S3, IAM
+- **Purpose**: Learn fundamental AWS services
 
-## 🛠️ Development
+### 2. **URL Shortener** (`blueprints/url-shortener/`)
+- **Services**: Lambda, DynamoDB, API Gateway, CloudFront, S3
+- **Purpose**: Learn serverless architecture
 
-### Prerequisites
-- Node.js 14.x or later
-- AWS CLI configured
-- AWS CDK CLI (`npm install -g aws-cdk`)
+## 🏗️ Blueprint Structure
 
-### Scripts
-- `npm run build` - Compile TypeScript
-- `npm run watch` - Watch for changes and recompile
-- `npm test` - Run tests
-- `cdk deploy` - Deploy stack
-- `cdk destroy` - Destroy stack
-- `cdk diff` - Show differences
-- `cdk synth` - Synthesize CloudFormation template
+Each blueprint is completely independent with its own:
+- **Dependencies** (`package.json`)
+- **TypeScript Configuration** (`tsconfig.json`)
+- **CDK Configuration** (`cdk.json`)
+- **App Entry Point** (`bin/blueprint-name.ts`)
+- **Stack Implementation** (`lib/blueprint-name-stack.ts`)
+- **Documentation** (`README.md`)
 
 ## 📚 Learning Resources
 - [AWS CDK TypeScript Documentation](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-typescript.html)

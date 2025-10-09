@@ -1,12 +1,11 @@
 {
-  "name": "aws-blueprints-typescript",
+  "name": "basic-web-app-blueprint",
   "version": "1.0.0",
-  "description": "AWS Blueprints - TypeScript CDK Examples",
-  "main": "index.js",
+  "description": "Basic Web Application AWS CDK Blueprint",
+  "main": "bin/basic-web-app.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
     "cdk": "cdk",
     "deploy": "cdk deploy",
     "destroy": "cdk destroy",
@@ -14,20 +13,20 @@
     "synth": "cdk synth"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.7.0",
-    "aws-cdk": "^2.1029.4",
+    "@types/node": "^20.0.0",
+    "aws-cdk": "^2.100.0",
     "aws-cdk-lib": "^2.219.0",
-    "constructs": "^10.4.2",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.4",
-    "typescript": "^5.9.3"
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.0",
+    "typescript": "~5.0.0"
   },
   "keywords": [
     "aws",
     "cdk",
     "infrastructure",
-    "typescript"
+    "typescript",
+    "blueprint"
   ],
   "author": "",
   "license": "MIT"

@@ -1,0 +1,35 @@
+{
+  "name": "url-shortener-blueprint",
+  "version": "1.0.0",
+  "description": "URL Shortener AWS CDK Blueprint",
+  "main": "bin/url-shortener.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy",
+    "diff": "cdk diff",
+    "synth": "cdk synth"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "aws-cdk": "^2.100.0",
+    "aws-cdk-lib": "^2.219.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.0",
+    "typescript": "~5.0.0"
+  },
+  "keywords": [
+    "aws",
+    "cdk",
+    "infrastructure",
+    "typescript",
+    "blueprint",
+    "url-shortener",
+    "serverless"
+  ],
+  "author": "",
+  "license": "MIT"
+}

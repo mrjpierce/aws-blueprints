@@ -15,30 +15,30 @@ A collection of ready-to-deploy AWS infrastructure patterns and solutions using 
 ```
 aws-blueprints/
 ├── typescript/       # TypeScript CDK implementations
-│   ├── blueprints/
-│   ├── package.json
-│   └── tsconfig.json
+│   └── blueprints/   # Self-contained blueprint directories
 ├── python/          # Python CDK implementations
-│   ├── blueprints/
-│   ├── requirements.txt
-│   └── pyproject.toml
-└── docs/            # Shared documentation and guides
+│   └── blueprints/   # Self-contained blueprint directories
+└── dev/             # Development workspace (not committed)
 ```
 
 ## 🔧 Available Blueprints
 
-Each blueprint is available in both TypeScript and Python, contained in their respective language directories with their own README and deployment instructions.
+Each blueprint is completely self-contained and available in both TypeScript and Python:
 
 ### Current Blueprints:
 1. **Basic Web Application** (EC2 + VPC + S3)
    - TypeScript: `typescript/blueprints/basic-web-app/`
    - Python: `python/blueprints/basic_web_app/`
 
+2. **URL Shortener** (Lambda + DynamoDB + API Gateway + CloudFront)
+   - TypeScript: `typescript/blueprints/url-shortener/`
+   - Python: `python/blueprints/url_shortener/`
+
 ### Coming Soon:
-2. Serverless API (API Gateway + Lambda + DynamoDB)
-3. Static Website Hosting (S3 + CloudFront)
-4. Container Application (ECS + Fargate)
-5. Microservices Architecture (ECS + API Gateway + Lambda)
+3. Serverless API (API Gateway + Lambda + DynamoDB)
+4. Static Website Hosting (S3 + CloudFront)
+5. Container Application (ECS + Fargate)
+6. Microservices Architecture (ECS + API Gateway + Lambda)
 
 ## 🚀 Getting Started
 
