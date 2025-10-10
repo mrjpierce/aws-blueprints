@@ -1,14 +1,11 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
-import { randomBytes } from 'crypto';
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
+const { randomBytes } = require('crypto');
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-export const handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
+exports.handler = async (event) => {
   try {
     const { originalUrl } = JSON.parse(event.body || '{}');
     
@@ -25,7 +22,7 @@ export const handler = async (
     
     // Store in DynamoDB
     await docClient.send(new PutCommand({
-      TableName: process.env.TABLE_NAME!,
+      TableName: process.env.TABLE_NAME,
       Item: {
         shortCode,
         originalUrl,
@@ -53,6 +50,6 @@ export const handler = async (
   }
 };
 
-function generateShortCode(): string {
+function generateShortCode() {
   return randomBytes(4).toString('hex');
 }

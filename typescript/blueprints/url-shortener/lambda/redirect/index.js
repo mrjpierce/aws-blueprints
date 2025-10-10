@@ -1,13 +1,10 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, GetCommand, UpdateCommand } = require('@aws-sdk/lib-dynamodb');
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-export const handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
+exports.handler = async (event) => {
   try {
     const shortCode = event.pathParameters?.shortCode;
     
@@ -21,7 +18,7 @@ export const handler = async (
     
     // Get item from DynamoDB
     const getResult = await docClient.send(new GetCommand({
-      TableName: process.env.TABLE_NAME!,
+      TableName: process.env.TABLE_NAME,
       Key: { shortCode }
     }));
     
@@ -35,7 +32,7 @@ export const handler = async (
     
     // Increment click count
     await docClient.send(new UpdateCommand({
-      TableName: process.env.TABLE_NAME!,
+      TableName: process.env.TABLE_NAME,
       Key: { shortCode },
       UpdateExpression: 'SET clickCount = clickCount + :inc',
       ExpressionAttributeValues: { ':inc': 1 }

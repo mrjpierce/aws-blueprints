@@ -1,13 +1,10 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, GetCommand } = require('@aws-sdk/lib-dynamodb');
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-export const handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
+exports.handler = async (event) => {
   try {
     const shortCode = event.pathParameters?.shortCode;
     
@@ -21,7 +18,7 @@ export const handler = async (
     
     // Get item from DynamoDB
     const result = await docClient.send(new GetCommand({
-      TableName: process.env.TABLE_NAME!,
+      TableName: process.env.TABLE_NAME,
       Key: { shortCode }
     }));
     
