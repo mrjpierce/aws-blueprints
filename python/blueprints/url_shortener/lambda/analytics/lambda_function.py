@@ -27,13 +27,19 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             }
         
         item = response['Item']
+        
+        # Convert Decimal to int for JSON serialization
+        click_count = item.get('clickCount', 0)
+        if hasattr(click_count, 'to_integral_value'):
+            click_count = int(click_count.to_integral_value())
+        
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({
                 'shortCode': item['shortCode'],
                 'originalUrl': item['originalUrl'],
-                'clickCount': item.get('clickCount', 0),
+                'clickCount': click_count,
                 'createdAt': item['createdAt']
             })
         }

@@ -108,6 +108,12 @@ class UrlShortenerStack(Stack):
             website_index_document="index.html",
             website_error_document="error.html",
             public_read_access=True,
+            block_public_access=s3.BlockPublicAccess(
+                block_public_acls=False,
+                block_public_policy=False,
+                ignore_public_acls=False,
+                restrict_public_buckets=False,
+            ),
             removal_policy=cdk.RemovalPolicy.DESTROY,
         )
 
@@ -115,7 +121,7 @@ class UrlShortenerStack(Stack):
         distribution = cloudfront.Distribution(
             self, "Distribution",
             default_behavior=cloudfront.BehaviorOptions(
-                origin=origins.S3Origin(website_bucket),
+                origin=origins.HttpOrigin(website_bucket.bucket_website_domain_name),
                 viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
             ),
             additional_behaviors={
